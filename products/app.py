@@ -4,7 +4,7 @@
 
 from flask import Blueprint, render_template
 
-from web.database import db_session, init_db
+from web.database import init_db
 from products.models import Product
 
 
@@ -33,6 +33,7 @@ def show_product(product_id):
 
 # @products_app.route("/add_products", methods=["GET"])
 # def add_products():
+#     from web.database import db_session
 #     db_session.add(Product('Computer', 15, 'Mac book pro - a product of Apple. Nice looking and easy to use'))
 #     db_session.add(Product('Smartphone', 10, 'Android OnePlus5 - quite interesting purchase in this month'))
 #     db_session.add(Product('Watches', 5, 'Golden watches with GPS tracker and calories counter'))
