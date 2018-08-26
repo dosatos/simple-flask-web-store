@@ -10,7 +10,11 @@
     <h1> Welcome to the online store! </h1>
     <h3> We have the following item available at our online store: </h3>
     {% for product in products %}
-        <p> Item ID {{ product }} </p>
+        <div style="border: solid 1px black">
+            <p> #{{ product.id }}: {{ product.title }} </p>
+            <p>{{ product.description }}</p>
+        </div>
+
     {% endfor %}
 
 {% endblock %}

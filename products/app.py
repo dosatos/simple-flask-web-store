@@ -4,15 +4,29 @@
 
 from flask import Blueprint, render_template
 
+from web.database import db_session, init_db
+from products.models import Product
+
 
 products_app = Blueprint("products_app", __name__, template_folder="templates/")
+init_db()
+
+
+@products_app.route("/add_products", methods=["GET"])
+def add_products():
+    db_session.add(Product('Computer', 15, 'Mac book pro - a product of Apple. Nice looking and easy to use'))
+    db_session.add(Product('Smartphone', 10, 'Android OnePlus5 - quite interesting purchase in this month'))
+    db_session.add(Product('Watches', 5, 'Golden watches with GPS tracker and calories counter'))
+    db_session.commit()
+    return "Items added"
 
 
 @products_app.route("/", methods=["GET"])
 def show_products():
+    products = Product.query.all()
     tempalte_path = "products/products.html"
     context = {
-        "products": [1, 2, 3, 4, 5]
+        "products": products,
     }
     return render_template(tempalte_path, **context)
 
@@ -24,4 +38,3 @@ def show_product(product_id):
         "product_id": product_id,
     }
     return render_template(tempalte_path, **context)
-
