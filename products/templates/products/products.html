@@ -11,8 +11,10 @@
     <h3> We have the following item available at our online store: </h3>
     {% for product in products %}
         <div style="border: solid 1px black">
-            <p> #{{ product.id }}: {{ product.title }} </p>
+            <a href="{{ product.id }}">
+                <p> #{{ product.id }}: {{ product.title }} </p>
             <p>{{ product.description }}</p>
+            </a>
         </div>
 
     {% endfor %}
