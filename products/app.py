@@ -19,6 +19,7 @@ def show_products():
     tempalte_path = "products/products.html"
     context = {
         "products": products,
+        "products_page": True,
     }
     return render_template(tempalte_path, **context)
 
@@ -29,6 +30,7 @@ def show_single_product(product_id):
     tempalte_path = "products/product.html"
     context = {
         "product": product,
+        "single_product_page": True,
     }
     return render_template(tempalte_path, **context)
 
