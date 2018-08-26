@@ -7,6 +7,6 @@ This is a simple web-store build on Flask and Python3.6
 > pip install -r requirements.txt
 
 # To run the server
-> flask run
+> FLASK_APP=web/app.py flask run
 
 ### Author: Yeldos Balgabekov | Github: @dosatos
